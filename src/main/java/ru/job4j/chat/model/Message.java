@@ -1,13 +1,29 @@
 package ru.job4j.chat.model;
 
-import java.sql.Timestamp;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Entity
+@Table(name = "messages")
 public class Message {
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String text;
-    private Timestamp created;
+
+    @Column(updatable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime created;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "person_id", nullable = false)
     private Person person;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "room_id", nullable = false)
     private Room room;
 
     public long getId() {
@@ -26,11 +42,11 @@ public class Message {
         this.text = text;
     }
 
-    public Timestamp getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(Timestamp created) {
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
 

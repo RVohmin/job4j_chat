@@ -1,12 +1,29 @@
 package ru.job4j.chat.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "persons")
 public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
     private String password;
+
+    @ManyToOne
+    @JoinColumn(name = "role_id", nullable = false)
     private Role role;
+
+    public Person() {
+    }
+
+    public static Person of(Integer id) {
+        Person person = new Person();
+        person.setId(id);
+        return person;
+    }
 
     public int getId() {
         return id;
@@ -49,11 +66,11 @@ public class Person {
             return false;
         }
         Person person = (Person) o;
-        return id == person.id && username.equals(person.username);
+        return username.equals(person.username) && password.equals(person.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username);
+        return Objects.hash(username, password);
     }
 }

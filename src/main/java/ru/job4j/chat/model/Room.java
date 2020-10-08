@@ -1,9 +1,16 @@
 package ru.job4j.chat.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "rooms")
 public class Room {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "name")
     private String name;
 
     public int getId() {
