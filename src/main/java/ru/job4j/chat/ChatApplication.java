@@ -11,12 +11,13 @@ public class ChatApplication {
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-//    private static void getPass() {
-//        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-//        String pwd = encoder.encode("password");
-//        System.out.printf("Password for 'password': %s", pwd);
-//    }
+    private static void getPass() {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String pwd = encoder.encode("password");
+        System.out.printf("Password for 'password': %s", pwd);
+    }
     public static void main(String[] args) {
+//        getPass();
         SpringApplication.run(ChatApplication.class, args);
     }
 

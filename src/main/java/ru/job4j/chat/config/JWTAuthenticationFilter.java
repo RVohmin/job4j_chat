@@ -1,4 +1,5 @@
-package ru.job4j.chat.filter;
+package ru.job4j.chat.config;
+
 
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,7 +12,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import ru.job4j.chat.model.Person;
 
 import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

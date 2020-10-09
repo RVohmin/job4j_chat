@@ -1,4 +1,4 @@
-package ru.job4j.chat.service;
+package ru.job4j.chat.config;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

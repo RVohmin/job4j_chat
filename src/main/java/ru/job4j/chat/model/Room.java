@@ -13,6 +13,12 @@ public class Room {
     @Column(name = "name")
     private String name;
 
+    public static Room of(int id) {
+        Room room = new Room();
+        room.setId(id);
+        return room;
+    }
+
     public int getId() {
         return id;
     }

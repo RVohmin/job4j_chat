@@ -1,4 +1,4 @@
-package ru.job4j.chat.filter;
+package ru.job4j.chat.config;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -6,7 +6,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-import ru.job4j.chat.service.UserDetailsServiceImpl;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -15,12 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static ru.job4j.chat.filter.JWTAuthenticationFilter.HEADER_STRING;
-import static ru.job4j.chat.filter.JWTAuthenticationFilter.SECRET;
-import static ru.job4j.chat.filter.JWTAuthenticationFilter.TOKEN_PREFIX;
+import static ru.job4j.chat.config.JWTAuthenticationFilter.*;
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     private final UserDetailsServiceImpl userDetailsService;
+
     public JWTAuthorizationFilter(AuthenticationManager authManager, UserDetailsServiceImpl userDetailsService) {
         super(authManager);
         this.userDetailsService = userDetailsService;
