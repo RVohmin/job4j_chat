@@ -17,7 +17,6 @@ public class ChatApplication {
         System.out.printf("Password for 'password': %s", pwd);
     }
     public static void main(String[] args) {
-//        getPass();
         SpringApplication.run(ChatApplication.class, args);
     }
 
