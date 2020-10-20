@@ -1,7 +1,5 @@
 package ru.job4j.chat.model;
 
-import org.springframework.data.repository.cdi.Eager;
-
 import javax.persistence.*;
 import java.util.Objects;
 
